@@ -3,7 +3,7 @@ import { API } from "../lib";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Button from "../components/Button";
 
-function Login() {
+function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -71,4 +71,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
