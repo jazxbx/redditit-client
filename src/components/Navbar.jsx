@@ -2,7 +2,13 @@ import { Link } from "react-router-dom";
 import { Home, Search } from "@mui/icons-material";
 import Button from "./Button";
 
-export default function Navbar() {
+export default function Navbar({ user, setToken, setUser }) {
+  function handleLogout() {
+    setToken("");
+    setUser({});
+    localStorage.removeItem("token");
+  }
+
   return (
     <nav className="mx-auto flex w-full max-w-screen-xl items-center p-2">
       <ul className="mx-4 flex w-full">
@@ -21,17 +27,36 @@ export default function Navbar() {
             placeholder="Search Redidit"
           />
         </form>
-        <li>
-          <Button className="ml-2 mr-1 bg-orange-600 text-white">
-            {" "}
-            <Link to={"/login"}>Login</Link>
-          </Button>
-        </li>
-        <li>
-          <Button className="mr-2" outline>
-            <Link to={"/register"}>Register</Link>
-          </Button>
-        </li>
+        {user && user.username ? (
+          <>
+            <li>
+              <span className="mr-2 text-gray-700">
+                Welcome, {user.username}
+              </span>
+            </li>
+            <li>
+              <Button
+                className="ml-2 mr-1 bg-orange-600 text-white"
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Button className="ml-2 mr-1 bg-orange-600 text-white">
+                <Link to={"/login"}>Login</Link>
+              </Button>
+            </li>
+            <li>
+              <Button className="mr-2" outline>
+                <Link to={"/register"}>Register</Link>
+              </Button>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
