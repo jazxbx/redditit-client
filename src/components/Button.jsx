@@ -1,6 +1,6 @@
 function Button(props) {
   let classNames =
-    "rounded-full border border-orange-600  px-3 font-bold text-sm";
+    "rounded-full border border-orange-600  px-3 font-bold text-sm hover:bg-orange-800";
 
   // Needs to be fixed
   if (props) {

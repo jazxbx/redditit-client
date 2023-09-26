@@ -7,6 +7,7 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [token, setToken] = useState("");
   const [user, setUser] = useState({});
+  const [subreddits, setSubreddits] = useState([]);
 
   async function fetchUser() {
     const localToken = localStorage.getItem("token");
@@ -35,18 +36,39 @@ function App() {
     }
   }
 
+  async function fetchSubreddits() {
+    const res = await fetch(`${API}/subreddits`);
+    const info = await res.json();
+    if (info.success) {
+      setSubreddits(info.subreddits);
+    }
+  }
+
+  console.log("subreddits", subreddits);
+
   useEffect(() => {
     fetchUser();
     fetchPosts();
+    fetchSubreddits();
   }, [token]);
 
-  console.log(user, token);
-  console.log(posts);
+  // console.log(user, token);
+  // console.log(posts);
 
   return (
     <>
       <Navbar user={user} setToken={setToken} setUser={setUser} />
-      <Outlet context={{ fetchPosts, posts, setToken, token, user, setUser }} />
+      <Outlet
+        context={{
+          fetchPosts,
+          posts,
+          setToken,
+          token,
+          user,
+          setUser,
+          subreddits,
+        }}
+      />
     </>
   );
 }
