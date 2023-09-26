@@ -13,7 +13,9 @@ export default function Navbar({ user, setToken, setUser }) {
     <nav className="mx-auto flex w-full max-w-screen-xl items-center p-2">
       <ul className="mx-4 flex w-full">
         <li className="flex items-center justify-start gap-2">
-          <Link to={"/"}>Redidit</Link>
+          <Link to={"/"}>
+            <span className="bg font-bold">Redidit</span>
+          </Link>
           <Home />
         </li>
         <form

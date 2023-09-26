@@ -1,8 +1,15 @@
+import Button from "../components/Button";
+import Post from "../components/Posts"
+
 function Home() {
   return (
-    <div>
-      <input type="text" placeholder="create post" />
-    </div>
+    <>
+      <form className="flex justify-center">
+      <input className="border-2 border-slate-700 " type="text" placeholder="create post" />
+      <Button>Create a Post</Button>
+      </form>
+      <Post/>
+    </>
   );
 }
 

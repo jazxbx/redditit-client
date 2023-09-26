@@ -31,15 +31,17 @@ function App() {
     const res = await fetch(`${API}/posts`);
     const info = await res.json();
     if (info.success) {
-      setPosts(info.summaries);
+      setPosts(info.posts);
     }
   }
 
   useEffect(() => {
     fetchUser();
+    fetchPosts();
   }, [token]);
 
   console.log(user, token);
+  console.log(posts);
 
   return (
     <>

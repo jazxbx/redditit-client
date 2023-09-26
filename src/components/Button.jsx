@@ -3,7 +3,7 @@ function Button(props) {
     "rounded-full border border-orange-600  px-3 font-bold text-sm";
 
   // Needs to be fixed
-  if (props.outline) {
+  if (props) {
     classNames += "bg-orange-300";
   } else {
     classNames += "bg-orange-600";
