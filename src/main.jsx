@@ -8,6 +8,7 @@ import Home from "./routes/home.jsx";
 import Login from "./routes/login.jsx";
 import Register from "./routes/register.jsx";
 import Subreddit from "./routes/subreddit.jsx";
+import SubmitPost from "./routes/submitPost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
+      { path: "submit", element: <SubmitPost /> },
       { path: "subreddit/:subredditId", element: <Subreddit /> },
     ],
   },
