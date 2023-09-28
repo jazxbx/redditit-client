@@ -7,8 +7,11 @@ function Home() {
   return (
     <>
       <Button>
-        <Link to={"/submit"}>Create a Post</Link>
+        <Link to={"/submit"}>Create Post</Link>
       </Button>
+      {/* <Button>
+        <Link to={"/submit"}>Create Community</Link>
+      </Button> */}
       <div className="mx-28 flex gap-3">
         <Post />
         <DisplaySubreddits />

@@ -1,4 +1,5 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
+import Button from "../components/Button";
 
 function Subreddit() {
   const { subreddits, posts } = useOutletContext();
@@ -16,7 +17,12 @@ function Subreddit() {
     <div>
       <div>
         {filteredPosts.length === 0 ? (
-          <p>Subredditit empty, create a post!</p>
+          <div>
+            <p>Subredditit empty, create a post!</p>
+            <Link to={"/submit"}>
+              <Button>Post</Button>
+            </Link>
+          </div>
         ) : (
           filteredPosts.map((post) => (
             <div key={post.id} className="border-2 border-indigo-500/75 p-7">

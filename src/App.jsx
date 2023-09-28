@@ -44,7 +44,7 @@ function App() {
     }
   }
 
-  console.log("subreddits", subreddits);
+  // console.log("subreddits", subreddits);
 
   useEffect(() => {
     fetchUser();
