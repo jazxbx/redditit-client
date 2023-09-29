@@ -67,6 +67,7 @@ function App() {
           user,
           setUser,
           subreddits,
+          fetchSubreddits,
         }}
       />
     </>
